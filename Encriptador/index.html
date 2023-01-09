@@ -3,40 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Encriptador</title>
   </head>
   <body>
     <header>
-      <h1>Logo</h1>
-      
+      <div class="logo">      
+      <h1><img src="images/Logo.png" /></h1>
+      </div>
     </header>
 
-    <main>
-      <section>
-        <form>
-          <textarea cols="40" rows="20" id="mensaje1">
-            Ingrese textp aquí
-          </textarea>
-  
-          <input type="submit" value="Encriptar">
-          <button>Desencriptar</button>
-        </form>
+    <main>      
+      <section class="contenido">
+        <div class="principal">        
+          <form>
+            <textarea cols="40" rows="12" id="mensaje1" >Ingrese el texto aquí</textarea>               
+          </form>  
 
-        <p><strong> Solo letras minúsculas y sin acentos</strong></p>     
+          <p class="minuscula"> 🛈 Solo letras minúsculas y sin acentos</p>    
+            <div class="botones">
+              <button>Encriptar</button>
+              <button>Desencriptar</button>
+            </div>
+          
+          </div>
+
+          <div class="lateral">
+            <p>Imagen</p>
+          <h2>Ningun mensaje fue encontrado</h2>
+          <p>Ingresa el texto que deses encriptar o desencriptar</p>
+          </div>
         
-        <button>Desencriptar</button>
-      
-      </section>
-      <section>
-        <p>Imagen</p>
-      <h2>Ningun mensaje fue encontrado</h2>
-      <p>Ingresa el texto que deses encriptar o desencriptar</p>
-      </section>   
+        </section>
+        
+               
       
     </main>
     <footer>
-        
+        <center>
+          Carolina Acuña Guzmán 2022
+        </center>
     </footer>
   </body>
 </html>

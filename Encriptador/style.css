@@ -1,0 +1,63 @@
+body{
+    background: #E9ECF8;
+}
+
+.logo{
+    margin: 40px auto;
+}
+
+.contenido{       
+    margin: 0 auto;   
+      
+}
+
+.contenido div{
+    //border: 2px solid #000000; 
+    display: inline-block;
+}
+
+.principal{
+    width:60%;
+    padding: 0 3em 0 3em;
+    
+}
+
+textarea {
+    resize: none;
+    width: 99%;
+    background: #E9ECF8;
+    border: none;
+    color: #0A3871;
+    text-align: center;
+    font-size: 25px;
+  }
+
+  .minuscula{   
+    color: #343A40;
+    font-size: 15px;
+    margin: 10px;   
+  }
+  .botones{
+    margin: 5px;  
+    width: 100%;
+    
+  }
+  .botones button{
+    border-radius: 15px;
+    padding: 1em 2em;
+    width: 48%;    
+  }
+
+  .lateral{
+    background: #ffffff;
+  }
+ 
+
+footer{
+    border: 2px solid #000000; 
+    padding: 1em 0;
+    margin-top: 1em;
+}
+
+
+       
