@@ -19,18 +19,20 @@
       <section class="contenido">
         <div class="principal">        
           <form>
-            <textarea cols="40" rows="12" id="mensaje1" >Ingrese el texto aquí</textarea>               
-          </form>  
-
-          <p class="minuscula"> 🛈 Solo letras minúsculas y sin acentos</p>    
-            <div class="botones">
-              <button>Encriptar</button>
-              <button>Desencriptar</button>
-            </div>
+            <textarea cols="40" rows="12" id="mensaje1" >Ingrese el texto aquí</textarea> 
+            <p class="minuscula"> 🛈 Solo letras minúsculas y sin acentos</p>  
+                          
+            <button class="botones">Encriptar</button>
+            <input class="botones" type="button" value="Desencriptar">
+            
+            
+          </form>            
+           
           
           </div>
 
           <div class="lateral">
+            <input id="textolateral"> 
             <p>Imagen</p>
           <h2>Ningun mensaje fue encontrado</h2>
           <p>Ingresa el texto que deses encriptar o desencriptar</p>
@@ -46,5 +48,53 @@
           Carolina Acuña Guzmán 2022
         </center>
     </footer>
+    <script>
+       
+      var button = document.querySelector("button");
+      var texto=document.querySelector("textarea")
+      var mostarEncriptado=document.getElementById("textolateral")
+
+      function encriptar(mensaje){
+        var encriptado=""
+        var aux="";
+        for(m in mensaje){
+          //console.log(mensaje[m]);
+          aux=mensaje[m];
+          if(mensaje[m] == "a"){
+            aux="ai";
+            console.log(aux);
+          }
+          if(mensaje[m]=="e"){
+            aux="enter";
+          }
+          if(mensaje[m]=="i"){
+            aux="imes";
+          }
+          if(mensaje[m]=="o"){
+            aux="ober";
+          }
+          if(mensaje[m]=="u"){
+            aux="ufat";
+          }
+          encriptado += aux;
+          console.log(encriptado);
+      }
+        return encriptado;
+
+      }
+
+
+      function mostrar(){
+        let mensaje=texto.value;
+        let encriptado;
+        mensaje=mensaje.toLowerCase();
+        encriptado=encriptar(mensaje);
+        //alert(encriptado);
+        mostarEncriptado.value = encriptado;
+      }
+
+      button.onclick=mostrar;
+
+    </script>
   </body>
 </html>

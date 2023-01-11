@@ -38,15 +38,16 @@ textarea {
     margin: 10px;   
   }
   .botones{
-    margin: 5px;  
-    width: 100%;
-    
-  }
-  .botones button{
-    border-radius: 15px;
+    margin: 5px;      
     padding: 1em 2em;
-    width: 48%;    
+    width: 48%;     
   }
+
+button{
+    background: #0A3871;
+    color: #ffffff;
+  }
+  
 
   .lateral{
     background: #ffffff;
