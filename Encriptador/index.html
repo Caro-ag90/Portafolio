@@ -22,7 +22,7 @@
             <textarea cols="40" rows="12" id="mensaje1" >Ingrese el texto aquí</textarea> 
             <p class="minuscula"> 🛈 Solo letras minúsculas y sin acentos</p>  
                           
-            <button class="botones">Encriptar</button>
+            <button id="btn-encriptar" class="botones">Encriptar</button>
             <input class="botones" type="button" value="Desencriptar">
             
             
@@ -30,9 +30,9 @@
            
           
           </div>
-
-          <div class="lateral">
-            <input id="textolateral"> 
+          
+          <div class="lateral">    
+            <p id="textolateral">Espacio texto lateral</p>        
             <p>Imagen</p>
           <h2>Ningun mensaje fue encontrado</h2>
           <p>Ingresa el texto que deses encriptar o desencriptar</p>
@@ -50,50 +50,49 @@
     </footer>
     <script>
        
-      var button = document.querySelector("button");
-      var texto=document.querySelector("textarea")
-      var mostarEncriptado=document.getElementById("textolateral")
+      let button = document.querySelector("#btn-encriptar");
+      let texto=document.querySelector("textarea");
+      const mostarEncriptado = document.getElementById('textolateral');          
+      let encriptado  ="";
+      let temp="";
 
-      function encriptar(mensaje){
-        var encriptado=""
-        var aux="";
-        for(m in mensaje){
-          //console.log(mensaje[m]);
-          aux=mensaje[m];
-          if(mensaje[m] == "a"){
+      function encriptar(){
+        let mensaje=texto.value.toLowerCase();        
+        let aux=" "; 
+        mostarEncriptado.innerHTML="";            
+
+        for(let i=0; i<mensaje.length; i++){
+          aux=mensaje[i];
+          if(mensaje[i] == "a"){
             aux="ai";
-            console.log(aux);
           }
-          if(mensaje[m]=="e"){
+          if(mensaje[i]=="e"){
             aux="enter";
           }
-          if(mensaje[m]=="i"){
+          if(mensaje[i]=="i"){
             aux="imes";
           }
-          if(mensaje[m]=="o"){
+          if(mensaje[i]=="o"){
             aux="ober";
           }
-          if(mensaje[m]=="u"){
+          if(mensaje[i]=="u"){
             aux="ufat";
           }
           encriptado += aux;
-          console.log(encriptado);
-      }
-        return encriptado;
+          
+        }         
+       alert(encriptado);
+        mostarEncriptado.innerHTML += encriptado;
+        return false;
+        
+      }     
 
-      }
-
-
-      function mostrar(){
-        let mensaje=texto.value;
-        let encriptado;
-        mensaje=mensaje.toLowerCase();
-        encriptado=encriptar(mensaje);
-        //alert(encriptado);
-        mostarEncriptado.value = encriptado;
-      }
-
-      button.onclick=mostrar;
+         
+      
+     button.onclick = encriptar;
+     
+    
+     // 
 
     </script>
   </body>
