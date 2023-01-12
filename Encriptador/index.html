@@ -19,11 +19,11 @@
       <section class="contenido">
         <div class="principal">        
           <form>
-            <textarea cols="40" rows="12" id="mensaje1" >Ingrese el texto aquí</textarea> 
+            <textarea cols="40" rows="12" id="mensaje1" placeholder="Ingrese el texto aquí"></textarea> 
             <p class="minuscula"> 🛈 Solo letras minúsculas y sin acentos</p>  
                           
             <button id="btn-encriptar" class="botones">Encriptar</button>
-            <input class="botones" type="button" value="Desencriptar">
+            <input id="btn-dencriptar" class="botones" type="button" value="Desencriptar">
             
             
           </form>            
@@ -31,11 +31,14 @@
           
           </div>
           
-          <div class="lateral">    
-            <p id="textolateral">Espacio texto lateral</p>        
-            <p>Imagen</p>
-          <h2>Ningun mensaje fue encontrado</h2>
-          <p>Ingresa el texto que deses encriptar o desencriptar</p>
+          <div class="lateral"> 
+            <div id="textolateral">
+              <img src="images/Muñeco.png" alt="muñeco"></p>
+              <h2>Ningun mensaje fue encontrado</h2>
+              <p>Ingresa el texto que deses encriptar o desencriptar</p>
+            </div>                    
+            
+          
           </div>
         
         </section>
@@ -48,9 +51,9 @@
           Carolina Acuña Guzmán 2022
         </center>
     </footer>
-    <script>
-       
+    <script>       
       let button = document.querySelector("#btn-encriptar");
+      let buttondes = document.querySelector("#btn-dencriptar");
       let texto=document.querySelector("textarea");
       const mostarEncriptado = document.getElementById('textolateral');          
       let encriptado  ="";
@@ -81,16 +84,28 @@
           encriptado += aux;
           
         }         
-       alert(encriptado);
-        mostarEncriptado.innerHTML += encriptado;
+       
+        mostarEncriptado.innerHTML += "<p>"+encriptado+"</p>";        
         return false;
         
       }     
+      function desencriptar(){
+        let mensaje=texto.value;        
+        mostarEncriptado.innerHTML=""; 
 
+        mensaje = mensaje.replaceAll("ai", "a");       
+        mensaje = mensaje.replaceAll("enter", "e");       
+        mensaje = mensaje.replaceAll("imes", "i");       
+        mensaje = mensaje.replaceAll("ober", "o");       
+        mensaje = mensaje.replaceAll("ufat", "u");
+
+       mostarEncriptado.innerHTML += "<p>"+mensaje+"</p>";
+       
+      }
          
       
      button.onclick = encriptar;
-     
+     buttondes.onclick =desencriptar;
     
      // 
 
