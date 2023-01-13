@@ -24,7 +24,7 @@
                           
             <button id="btn-encriptar" class="botones">Encriptar</button>
             <input id="btn-dencriptar" class="botones" type="button" value="Desencriptar">
-            
+            <input id="btn-copiar" class="botones" type="button" value="Copiar">
             
           </form>            
            
@@ -36,10 +36,10 @@
               <img src="images/Muñeco.png" alt="muñeco"></p>
               <h2>Ningun mensaje fue encontrado</h2>
               <p>Ingresa el texto que deses encriptar o desencriptar</p>
-            </div>                    
+            </div>
             
-          
           </div>
+          
         
         </section>
         
@@ -54,15 +54,50 @@
     <script>       
       let button = document.querySelector("#btn-encriptar");
       let buttondes = document.querySelector("#btn-dencriptar");
+      let buttoncopy = document.querySelector("#btn-copiar");
       let texto=document.querySelector("textarea");
-      const mostarEncriptado = document.getElementById('textolateral');          
-      let encriptado  ="";
-      let temp="";
+      const mostarEncriptado = document.getElementById('textolateral'); 
+      let resultado="";
+      
+
+      function acentos(mensaje){
+        let flag =false;
+        for(let i=0; i<mensaje.length; i++){
+          if(mensaje[i] == "á"){
+            flag=true;
+          }
+          if(mensaje[i]=="é"){
+            flag=true;
+          }
+          if(mensaje[i]=="í"){
+            flag=true;
+          }
+          if(mensaje[i]=="ó"){
+            flag=true;
+          }
+          if(mensaje[i]=="ú"){
+            flag=true;
+          }
+        }
+        return flag;
+      }
 
       function encriptar(){
-        let mensaje=texto.value.toLowerCase();        
+        let mensaje=texto.value.toLowerCase(); 
+        let encriptado  ="";       
         let aux=" "; 
-        mostarEncriptado.innerHTML="";            
+        mostarEncriptado.innerHTML ="";
+
+        if(acentos(mensaje)){
+          alert("No se permiten acentos");
+          return false;
+        }
+
+        if(mensaje==""){
+          mostarEncriptado.innerHTML="<img src='images/Muñeco.png' alt='muñeco'></p>"
+             +"<h2>Ningun mensaje fue encontrado</h2>"+
+              "<p>Ingresa el texto que deses encriptar o desencriptar</p>";
+        }                  
 
         for(let i=0; i<mensaje.length; i++){
           aux=mensaje[i];
@@ -83,30 +118,47 @@
           }
           encriptado += aux;
           
-        }         
+        }   
+        resultado=encriptado;      
        
-        mostarEncriptado.innerHTML += "<p>"+encriptado+"</p>";        
+        mostarEncriptado.innerHTML += "<p id='resultado'>"+encriptado+"</p>";        
         return false;
         
       }     
       function desencriptar(){
-        let mensaje=texto.value;        
+        let mensaje=texto.value.toLowerCase();    
         mostarEncriptado.innerHTML=""; 
+
+        if(acentos(mensaje)){
+          alert("No se permiten acentos");
+          return false;
+        }
+        if(mensaje==""){
+          mostarEncriptado.innerHTML="<img src='images/Muñeco.png' alt='muñeco'></p>"
+             +"<h2>Ningun mensaje fue encontrado</h2>"+
+              "<p>Ingresa el texto que deses encriptar o desencriptar</p>";
+        }
+         
 
         mensaje = mensaje.replaceAll("ai", "a");       
         mensaje = mensaje.replaceAll("enter", "e");       
         mensaje = mensaje.replaceAll("imes", "i");       
         mensaje = mensaje.replaceAll("ober", "o");       
         mensaje = mensaje.replaceAll("ufat", "u");
-
-       mostarEncriptado.innerHTML += "<p>"+mensaje+"</p>";
+        resultado=mensaje;
+       mostarEncriptado.innerHTML += "<p id='resultado'>"+mensaje+"</p>";
        
+      }    
+      
+      function copiar(){
+        navigator.clipboard.writeText(resultado);
+        
       }
          
       
      button.onclick = encriptar;
      buttondes.onclick =desencriptar;
-    
+     buttoncopy.onclick =copiar;
      // 
 
     </script>
