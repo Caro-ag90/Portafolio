@@ -83,5 +83,29 @@ footer{
     margin-top: 1em;
 }
 
+@media screen and (max-width:480px){
+
+  .principal, .lateral{
+    width: auto;
+  }
+
+  .contenido div{
+    display: block;
+  }
+
+  .lateral{
+    position: relative;
+    margin: 0 15px;
+  }
+
+  .botones{
+    display: block;
+    width: 100%;
+  }
+  footer{
+    margin-bottom: 2px;
+  }
+}
+
 
        
